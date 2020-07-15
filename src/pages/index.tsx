@@ -13,14 +13,11 @@ const IndexPage = () => {
           fontWeight: 'bold',
         }}
       >
-        Gatsby Ant Design Docs Boilerplate
+        Talkyjs
       </p>
-      <h2>A gatsby starter to create documentation websites</h2>
+      <h2>A JavaScript framework for Amazon Alexa Skill development</h2>
       <p>
-        This is a fork of{' '}
-        <a href="https://github.com/cvluca/gatsby-starter-markdown">
-          https://github.com/cvluca/gatsby-starter-markdown
-        </a>
+        Now WIP
       </p>
       <br />
       <Button.Group size="large">

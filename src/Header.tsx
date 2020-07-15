@@ -14,7 +14,13 @@ export class Header extends Component<Props> {
       <Row>
         <Menu mode="horizontal">
           <Menu.Item>
-            <Link to="/docs/get-started/introduction/">{siteTitle}</Link>
+            <Link to="/">{siteTitle}</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/docs/get-started/introduction">Docs</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/blog">Blog</Link>
           </Menu.Item>
           <Menu.Item>
             <a

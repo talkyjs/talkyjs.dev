@@ -7,10 +7,10 @@
     "name": "Guide",
     "link": "",
     "items": [
-      { "name": "Anchor", "link": "/docs/guide/anchor" },
-      { "name": "Contents", "link": "/docs/guide/contents" },
-      { "name": "Menu Items", "link": "/docs/guide/menu_items" },
-      { "name": "Sidebar", "link": "/docs/guide/sidebar" }
+      { "name": "Handler", "link": "/docs/guide/anchor" },
+      { "name": "Router", "link": "/docs/guide/contents" },
+      { "name": "JSX (TSX)", "link": "/docs/guide/menu_items" },
+      { "name": "CLI", "link": "/docs/guide/sidebar" }
     ]
   },
   {

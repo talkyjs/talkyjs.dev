@@ -5,56 +5,60 @@
   Introduction
 </h1>
 
-# Gatsby Ant-Design Documentation Starter
+# Create a new Alexa Skill with TalkyJS and ask-sdk
 
-Forked from https://github.com/cvluca/gatsby-starter-markdown.
-
-This starter is boilerplate for (technical) documentation websites optionally accomponied by a blog (you can use it forever you want of course).
+We can create a new Alexa Custom Skill from ASK CLI(v2)
 
 # Getting started
 
 ```
-npm install gatsby -g
-gatsby new my-docs https://github.com/jannikbuschke/gatsby-antd-docs
-cd my-docs
-npm run start
+$ ask new  --template-url https://github.com//talkyjs/talkyjs-alexa-skill-template-helloworld.git
+
+? Choose a method to host your skill's backend resources:  (Use arrow keys)
+❯ Alexa-hosted skills
+  Host your skill code by Alexa (free). 
+  AWS with CloudFormation
+  Host your skill code with AWS services and provision with AWS CloudFormation (requires AWS account) 
+  AWS Lambda
+  Host your skill code on AWS Lambda (requires AWS account). 
+  ──────────────
+  self-hosted and manage your own hosting 
+  
+[Warn]: CLI is about to download the skill template from unofficial template https://github.com//talkyjs/talkyjs-alexa-skill-template-helloworld.git. Please make sure you understand the source code to best protect yourself
+ from malicious usage.
+? Would you like to continue download the skill template?  Yes
+? Please type in your skill name:  talkyjs-alexa-skill-template-helloworld
+? Please type in your folder name for the skill project (alphanumeric):  talkyjs-alexa-skill-template-helloworld
+
+$ cd talkyjs-alexa-skill-template-helloworld
+$ ask deploy
 ```
 
-Visit http://localhost:8000.
-
-Edit files in `/content/docs` and see live updates.
+Edit files in `/talkyjs-alexa-skill-template-helloworld` and deploy AWS and Alexa developer account
 
 # Features
 
-- [x] Ant Design
+- [x] ASK SDK Compatible
 - [x] Typescript
-- [x] Markdown
-- [x] MDX
-- [x] Syntax highlighting
+- [x] JSX / TSX
+- [x] Jest (with Snapshot Test)
 
 # Roadmap
+ 
+- [ ] Decorator
+- [ ] Register generated handler by automatically
+- [ ] ESLint / prettier
+- [ ] E2E testing
 
-- [x] Add typescript
-- [x] Remove Redux
-- [x] General simplifications
-- [x] Add mdx
-- [x] Add syntax highlighting with prismjs
-- [x] Improve Header UI
-- [ ] Fix menu item links not showing active state
-- [ ] Blog feature / second content type
-- [ ] Improved typings
-- [ ] Improved responsiveness
-- [ ] Add Search
-
-# Hosting
-
-In order to host the site the **sites path** needs to be put into gatsby-config.js export object on to the property _pathPrefix_. Then run
+# Testing Lambda function
 
 ```
-npm run build
+$ cd lambda
+$ npm install
+$ npm run tesst
 ```
 
-and copy the content of the public folder to the webspace.
+By default, Jest will create a snapshot.
 
 # License
 

@@ -1,11 +1,7 @@
 [
   {
     "name": "Get Started",
-    "link": "",
-    "items": [
-      { "name": "Introduction", "link": "/docs/get-started/introduction" },
-      { "name": "Latex", "link": "/docs/get-started/latex" }
-    ]
+    "link":  "/docs/get-started/introduction"
   },
   {
     "name": "Guide",
@@ -18,16 +14,16 @@
     ]
   },
   {
-    "name": "Lorem Ipsum",
+    "name": "External",
     "link": "",
     "items": [
       {
-        "name": "Ipsum",
-        "link": "/docs/lorem-ipsum/Ipsum"
+        "name": "GitHub",
+        "link": "https://github.com/talkyjs"
       },
       {
-        "name": "Lorem",
-        "link": "/docs/lorem-ipsum/Lorem"
+        "name": "npm",
+        "link": "https://www.npmjs.com/search?q=%40talkyjs"
       }
     ]
   }

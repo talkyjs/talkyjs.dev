@@ -11,8 +11,8 @@ export class Header extends Component<Props> {
   render() {
     const { siteTitle } = this.props
     return (
-      <Row>
-        <Menu mode="horizontal">
+      <Row style={{backgroundColor: '#001529'}}>
+        <Menu mode="horizontal" theme="dark">
           <Menu.Item>
             <Link to="/">{siteTitle}</Link>
           </Menu.Item>

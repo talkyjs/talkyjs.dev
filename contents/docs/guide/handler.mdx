@@ -1,0 +1,68 @@
+---
+---
+
+<h1 align="center">Handler</h1>
+
+## Introduction
+
+Handler is a almost same as a RequestHandler in ask-sdk.
+
+
+```typescript
+import { RequestHandler } from 'ask-sdk-core';
+
+export const HelloWorldIntentHandler: RequestHandler = {
+    async canHandle(handlerInput) {
+        if (handlerInput.requestEnvelope.request.type !== 'IntentRequest') return false       
+        return handlerInput.requestEnvelope.request.intent.name === "HelloWorldIntent"
+    },
+    async handle(handlerInput) {
+        return handlerInput.responseBuilder
+            .speak("Hello! It's a nice development. How are you?").reprompt("How are you?")
+            .getResponse()
+    }
+}
+
+export default HelloWorldIntentHandler
+```
+
+## Generate by CLI
+
+We can easy to create a new handler file from TalkyJS CLI.
+
+```sh
+$ talky g handler HelloWorld
+? What type do you handle the request? IntentRequest
+? Which type do you want to write SSML? default
+CREATE src/HelloWorldIntent/HelloWorldIntent.handler.ts (640 bytes)
+CREATE src/HelloWorldIntent/tests/HelloWorldIntent.handler.spec.ts (1122 bytes)
+```
+
+## Add Handler to TalkyJS
+
+TalkyJS can add ask-sdk Handler by same API.
+
+```typescript
+import { SkillFactory } from '@talkyjs/core'
+import HelloWorldIntentHandler from './HelloWorldIntent/HelloWorldIntent.handler'
+
+export const handler = SkillFactory.launch()
+    .addRequestHandlers(
+        HelloWorldIntentHandler
+    )
+    .getSkill()
+    .lambda()
+```
+
+The example is the same as the following example.
+
+```typescript
+import { CustomSkillFactory } from 'ask-sdk-core'
+import HelloWorldIntentHandler from './HelloWorldIntent/HelloWorldIntent.handler'
+
+export const handler = CustomSkillFactory.init()
+    .addRequestHandlers(
+        HelloWorldIntentHandler
+    )
+    .lambda()
+```

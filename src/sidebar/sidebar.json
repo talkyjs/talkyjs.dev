@@ -10,7 +10,7 @@
       { "name": "Handler", "link": "/docs/guide/anchor" },
       { "name": "Router", "link": "/docs/guide/contents" },
       { "name": "JSX (TSX)", "link": "/docs/guide/menu_items" },
-      { "name": "CLI", "link": "/docs/guide/sidebar" }
+      { "name": "CLI", "link": "/docs/guide/cli" }
     ]
   },
   {

@@ -1,0 +1,124 @@
+---
+---
+
+<h1 align="center">TalkyJS CLI</h1>
+
+
+## Introduction
+
+TalkyJS provides a CLI command to create / update your Skill.
+
+```sh
+$ npm install -g @talkyjs/cli
+$ talky
+```
+
+Or we can use it from npx
+
+```sh
+$ npx @talkyjs/cli --help
+```
+
+
+## Commands
+
+### talky new
+Create a new Alexa app
+
+#### USAGE
+
+```sh
+$ talky new
+
+# For ask-sdk user
+$ talky new -C handler -S default
+
+# With S3 adapter
+$ talky new -B s3
+
+# Without test code
+$ talky new --no-test
+```
+
+#### OPTIONS
+```sh
+$ talky new --help
+  -B, --database=(none|s3|dynamodb)  [default: none] Skill database 
+                                     type
+
+  -C, --controller=(handler|router)  [default: router] Request handler 
+                                     object type
+
+  -D, --dry-run
+
+  -P, --path=path                    [default: ./] target path
+
+  -S, --ssml=(tsx|default)           [default: tsx] SSML markup type
+
+  -T, --no-test                      Ignore default test code
+
+  -d, --debug
+
+  -h, --help                         show CLI help
+```
+
+### talky generate
+
+Generate files for Alexa Skill
+
+#### Types
+
+- handler: ask-sdk request handler
+- router: ask-utils request router
+- service: Create a service class
+
+
+#### ALIASES
+
+```sh
+$ talky g
+$ talky gen
+```
+
+#### USAGE
+
+```sh
+$ talky generate TYPE NAME
+
+ARGUMENTS
+  TYPE  (handler|router|service) Generate file type
+  NAME  Generate files name
+
+OPTIONS
+  -D, --dry-run
+  -P, --path=path           [default: ./src] generate file path
+  -S, --ssml=(tsx|default)  SSML markup type
+  -T, --no-test             Ignore default test code
+  -d, --debug
+  -h, --help                show CLI help
+```
+
+#### EXAMPLES
+
+```sh
+  Create ask-sdk RequestHandler
+    $ talky g handler --ssml default
+
+  With TSX 
+    $ talky g handler --ssml tsx
+
+  Specific directory 
+    $ talky g handler --ssml tsx -P ./src
+
+  Create ask-utils RequestRouter
+    $ talky g router --ssml default
+
+  With TSX 
+    $ talky g router --ssml tsx
+
+  Create service class 
+    $ talky g service
+
+  No test 
+    $ talky g service --no-test
+```

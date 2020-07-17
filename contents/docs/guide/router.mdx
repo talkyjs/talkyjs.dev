@@ -1,0 +1,95 @@
+---
+---
+
+<h1 align="center">Router</h1>
+
+## Introduction
+TalkyJS supports @ask-utils/router to create a new RequestHandler more easily.
+
+```typescript
+import { Router } from "@ask-utils/router";
+
+export const HelloWorldIntentRouter: Router = {
+    requestType: "IntentRequest",
+    intentName: "HelloWorldIntent",
+    handler: async (handlerInput) => {
+        return handlerInput.responseBuilder
+            .speak("Hello! It's a nice development. How are you?")
+            .reprompt("How are you?")
+            .getResponse()
+    }
+}
+
+export default HelloWorldIntentRouter
+```
+
+We can easy to define `canHandle` method by using router.
+
+### Same Handler by ask-sdk
+
+```typescript
+import { RequestHandler } from 'ask-sdk-core';
+
+export const HelloWorldIntentHandler: RequestHandler = {
+    async canHandle(handlerInput) {
+        if (handlerInput.requestEnvelope.request.type !== 'IntentRequest') return false       
+        return handlerInput.requestEnvelope.request.intent.name === "HelloWorldIntent"
+    },
+    async handle(handlerInput) {
+        return handlerInput.responseBuilder
+            .speak("Hello! It's a nice development. How are you?")
+            .reprompt("How are you?")
+            .getResponse()
+    }
+}
+
+export default HelloWorldIntentHandler
+```
+
+
+## Generate by CLI
+
+We can easy to create a new route file from TalkyJS CLI.
+
+```sh
+$ talky g router HelloWorldIntent
+? What type do you handle the request? IntentRequest
+? Which type do you want to write SSML? default
+CREATE src/HelloWorldIntent/HelloWorldIntent.router.ts (449 bytes)
+CREATE src/HelloWorldIntent/tests/HelloWorldIntent.router.spec.ts (1246 bytes)
+```
+
+
+## Add Handler to TalkyJS
+
+We can add a new Route file by using TalkyJS API as same as ask-sdk SkillBuilder.
+
+```typescript
+import { SkillFactory } from '@talkyjs/core'
+import HelloWorldIntentHandler from './HelloWorldIntent/HelloWorldIntent.router'
+
+export const handler = SkillFactory.launch()
+    .addRequestRouters([
+        HelloWorldIntentHandler
+    ])
+    .getSkill()
+    .lambda()
+```
+
+And also we can mix a handler and a router.
+
+```typescript
+import { SkillFactory } from '@talkyjs/core'
+import HelloWorldIntentHandler from './HelloWorldIntent/HelloWorldIntent.router'
+import GoodByeIntentHandler from './GoodByeIntent/GoodByeIntent.handler'
+
+export const handler = SkillFactory.launch()
+    .addRequestRouters([
+        HelloWorldIntentHandler
+    ])
+    .addRequestHandlers(
+        GoodByeIntentHandler
+    )
+    .getSkill()
+    .lambda()
+```

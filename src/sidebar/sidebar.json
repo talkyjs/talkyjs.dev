@@ -8,7 +8,7 @@
     "link": "",
     "items": [
       { "name": "Handler", "link": "/docs/guide/handler" },
-      { "name": "Router", "link": "/docs/guide/contents" },
+      { "name": "Router", "link": "/docs/guide/router" },
       { "name": "JSX (TSX)", "link": "/docs/guide/menu_items" },
       { "name": "CLI", "link": "/docs/guide/cli" }
     ]

@@ -1,7 +1,12 @@
 [
   {
     "name": "Get Started",
-    "link":  "/docs/get-started/introduction"
+    "link": "",
+    "items": [
+      { "name": "Introduction", "link":  "/docs/get-started/introduction"},
+      { "name": "Features", "link":  "/docs/get-started/features"},
+      { "name": "Configurations", "link":  "/docs/get-started/configurations"}
+    ]
   },
   {
     "name": "Guide",

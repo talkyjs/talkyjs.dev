@@ -1,0 +1,69 @@
+---
+---
+
+<h1 align="center">JSX(TSX)</h1>
+
+## Introduction
+
+We can write your Alexa speech by using JSX.
+
+### Before
+
+```typescript
+handlerInput.responseBuilder
+  .speak("Hello! It's a nice development. How are you?")
+  .reprompt("How are you?")
+  .getResponse()
+```
+
+### After
+
+```tsx
+/** @jsx ssml */
+import {
+    ssml,
+    SpeechScriptJSX,
+} from '@ask-utils/speech-script'
+
+export class HelloWorldIntentScript extends SpeechScriptJSX {
+    speech() {
+        return (
+            <speak>
+                <p>Hello! It's a nice development. How are you?</p>
+            </speak>
+        )
+    }
+    
+    reprompt() {
+        return (
+            <speak>
+                <p>How are you?</p>
+            </speak>
+        )
+    }
+    
+}
+```
+
+## Generate by CLI
+
+We can easy to create a new route and handler file with using TSX from TalkyJS CLI.
+
+```sh
+$ talky g router HelloWorldIntent --ssml tsx
+? What type do you handle the request? IntentRequest
+CREATE src/HelloWorldIntent/HelloWorldIntent.router.ts (504 bytes)
+CREATE src/HelloWorldIntent/HelloWorldIntent.speech.tsx (449 bytes)
+CREATE src/HelloWorldIntent/tests/HelloWorldIntent.router.spec.ts (1246 bytes)
+CREATE src/HelloWorldIntent/tests/HelloWorldIntent.speech.spec.tsx (518 bytes)
+```
+
+
+```sh
+$ talky g handler HelloWorldIntent --ssml tsx
+? What type do you handle the request? IntentRequest
+CREATE src/HelloWorldIntent/HelloWorldIntent.handler.ts (504 bytes)
+CREATE src/HelloWorldIntent/HelloWorldIntent.speech.tsx (449 bytes)
+CREATE src/HelloWorldIntent/tests/HelloWorldIntent.handler.spec.ts (1246 bytes)
+CREATE src/HelloWorldIntent/tests/HelloWorldIntent.speech.spec.tsx (518 bytes)
+```

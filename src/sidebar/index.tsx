@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
-import { Affix, Menu } from 'antd'
+import { Affix, Menu, Layout } from 'antd'
 import 'antd/lib/menu/style/css'
 import { pathPrefix } from '../../gatsby-config'
 
@@ -74,16 +74,22 @@ export function Sidebar() {
         const defaultOpenKeys = rootItems.map((item) => item.id)
 
         return (
+          <Layout.Sider
+            breakpoint="lg"
+            collapsedWidth={0}
+          >
           <Affix>
             <Menu
+              theme="dark"
               mode="inline"
-              style={{ minWidth: 250, height: '100%', borderRight: 0 }}
+              style={{ height: '100%', borderRight: 0 }}
               defaultOpenKeys={defaultOpenKeys}
               selectedKeys={[currentPath]}
             >
               {rootItems.map((v) => render(v, v.id))}
             </Menu>
           </Affix>
+          </Layout.Sider>
         )
       }}
     />

@@ -1,32 +1,18 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import { Button } from 'antd'
-import { GithubOutlined, TwitterOutlined } from '@ant-design/icons'
+import { GithubOutlined } from '@ant-design/icons'
+import Img from 'gatsby-image'
 
-const IndexPage = () => {
+const IndexPage = ({logoImageURL}: {logoImageURL: string}) => {
   return (
     <div align="center" style={{ padding: 80 }}>
-      <p
-        style={{
-          color: 'cornflowerblue',
-          fontSize: 50,
-          fontWeight: 'bold',
-        }}
-      >
-        Talkyjs
-      </p>
+      <Img resolutions={logoImageURL} title="TalkyJS"/>
       <h2>A JavaScript framework for Amazon Alexa Skill development</h2>
-      <p>
-        Now WIP
-      </p>
       <br />
       <Button.Group size="large">
-        <Button href="https://twitter.com/jannikbuschke" target="_blank">
-          Twitter
-          <TwitterOutlined />
-        </Button>
         <Button
-          href="https://github.com/jannikbuschke/gatsby-antd-docs"
+          href="https://github.com/talkyjs/talkyjs-cli"
           target="_blank"
         >
           Github
@@ -40,4 +26,27 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default () => {
+  return (
+    <StaticQuery
+        query={query}
+        render={ data => (
+          <>
+          <IndexPage logoImageURL={data.file.childImageSharp.fixed} />
+          </>
+        )}
+      />
+  )
+}
+
+const query = graphql`
+    query {
+        file(relativePath: {eq: "logo.png"}) {
+            childImageSharp{
+                fixed(width: 640) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+    }
+`

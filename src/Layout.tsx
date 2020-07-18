@@ -64,8 +64,13 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
-                { name: 'description', content: 'Sample' },
+                { name: 'description', content: "TalkyJS is a JavaScript framework for Amazon Alexa Skill development" },
                 { name: 'keywords', content: 'sample, something' },
+                { property: "og:title", content: `${title}` },
+                { property: "og:type", content: "blog" },
+                { property: "og:url", content: 'https://talkyjs.dev' },
+                { property: "og:site_name", content: "TalkyJS" },
+                { property: "og:description", content: "TalkyJS is a JavaScript framework for Amazon Alexa Skill development" },
               ]}
             >
               <html lang="en" />

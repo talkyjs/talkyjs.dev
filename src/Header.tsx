@@ -2,39 +2,48 @@ import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import { Menu, Row } from 'antd'
 import { GithubOutlined, TwitterOutlined } from '@ant-design/icons'
+import Img from 'gatsby-image'
 
 interface Props {
-  siteTitle: string
+  siteTitle: string;
+  logoURL: string;
 }
 
 export class Header extends Component<Props> {
   render() {
-    const { siteTitle } = this.props
+    const { siteTitle, logoURL } = this.props
     return (
-      <Row style={{backgroundColor: '#001529'}}>
-        <Menu mode="horizontal" theme="dark">
+      <Row style={{backgroundColor: '#000'}}>
+        <Link to="/" style={{
+          borderBottom: '1px solid #f0f0f0',
+        }}>
+          {logoURL ? (
+            <Img resolutions={logoURL} title={siteTitle} />
+          ) : siteTitle }
+        </Link>
+        <Menu mode="horizontal" style={{
+          backgroundColor: '#000',
+        }}>
           <Menu.Item>
-            <Link to="/">{siteTitle}</Link>
+            <Link to="/docs/get-started/introduction" style={{
+              color: '#f6f6f6',
+            }}>Docs</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/docs/get-started/introduction">Docs</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/blog">Blog</Link>
+            <Link to="/blog" style={{
+              color: '#f6f6f6',
+            }}>Blog</Link>
           </Menu.Item>
           <Menu.Item>
             <a
-              href="https://github.com/jannikbuschke/gatsby-antd-docs"
+              href="https://github.com/talkyjs"
               target="_blank"
+              style={{
+                color: '#f6f6f6',
+              }}
             >
               <GithubOutlined />
               GitHub
-            </a>
-          </Menu.Item>
-          <Menu.Item>
-            <a href="https://twitter.com/jannikbuschke" target="_blank">
-              <TwitterOutlined />
-              Twitter
             </a>
           </Menu.Item>
         </Menu>

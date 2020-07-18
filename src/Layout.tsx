@@ -28,6 +28,13 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
               }
             }
           }
+          file(relativePath: {eq: "logo.png"}) {
+              childImageSharp{
+                  fixed(width: 180) {
+                      ...GatsbyImageSharpFixed
+                  }
+              }
+          }
         }
       `}
       render={(data) => {
@@ -63,7 +70,7 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
             >
               <html lang="en" />
             </Helmet>
-            <Header siteTitle={title} />
+            <Header siteTitle={title} logoURL={data.file.childImageSharp.fixed} />
 
             <div
               style={{

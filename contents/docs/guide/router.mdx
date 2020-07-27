@@ -177,6 +177,8 @@ export const DefaultLaunchRequestRouter: Router = {
 
 ### Conversation Turn
 
+And in the conversation session, we can handle the conversation turn.
+
 ```typescript
 export const InitialHelpIntentRouter: Router = {
     requestType: "IntentRequest",
@@ -235,6 +237,8 @@ export const DefaultHelpIntentRouter: Router = {
 
 ### Custom condition
 
+We can define custom function to handle the request.
+In this example, the custom matcher will check the `requestEnvelope.request.locale`.
 
 ```typescript
 export const HelpIntentForJapaneseRouter: Router = {

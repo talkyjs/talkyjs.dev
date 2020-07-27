@@ -67,3 +67,105 @@ CREATE src/HelloWorldIntent/HelloWorldIntent.speech.tsx (449 bytes)
 CREATE src/HelloWorldIntent/tests/HelloWorldIntent.handler.spec.ts (1246 bytes)
 CREATE src/HelloWorldIntent/tests/HelloWorldIntent.speech.spec.tsx (518 bytes)
 ```
+
+## Request object type
+We can set the request type using generics
+
+```tsx
+/** @jsx ssml */
+import {
+    ssml,
+    SpeechScriptJSX,
+} from '@ask-utils/speech-script'
+import { Request } from 'ask-sdk-model'
+
+export class HelloWorldIntentScript extends SpeechScriptJSX<Request, {
+    randomNumber: number
+}> {
+    speech() {
+        return (
+            <speak>
+                <p>Hello! Your rucky number is {this.options.randomNumber}.How are you?</p>
+            </speak>
+        )
+    }    
+}
+```
+
+In this example, we can easy to write code for ConnectionsResponse.
+
+```tsx
+/** @jsx ssml */
+import {
+    ssml,
+    SpeechScriptJSX,
+} from '@ask-utils/speech-script'
+import { interfaces } from 'ask-sdk-model'
+
+type ConnectionsResponse = interfaces.connections.ConnectionsResponse
+export class ConnectionsResponseScript extends SpeechScriptJSX<ConnectionsResponse> {
+    speech() {
+        const {
+            payload,
+            status,
+        } = this.props.request
+        return (
+            <speak>
+                <p>Your connection result status is {status}. and payload {payload['key']}</p>
+            </speak>
+        )
+    }    
+}
+```
+
+## Custom property
+
+We can put any custom property from the request.
+
+
+```tsx
+/** @jsx ssml */
+import {
+    ssml,
+    SpeechScriptJSX,
+} from '@ask-utils/speech-script'
+import { Request } from 'ask-sdk-model'
+
+export class HelloWorldIntentScript extends SpeechScriptJSX<Request, {
+    randomNumber: number
+}> {
+    speech() {
+        return (
+            <speak>
+                <p>Hello! Your rucky number is {this.options.randomNumber}.How are you?</p>
+            </speak>
+        )
+    }    
+}
+```
+
+And we can put the custom property like this example.
+
+```typescript
+import { Router } from "@talkyjs/core";
+
+import { HelloWorldIntentScript } from './HelloWorldIntent.speech'
+
+
+export const HelloWorldIntentRouter: Router = {
+    requestType: "IntentRequest",
+    intentName: "HelloWorldIntent",
+    handler: async (handlerInput) => {
+        const script = new HelloWorldIntentScript(handlerInput, {
+            randomNumber: Math.random()
+        })
+        return script
+            .createResponseBuilder()
+            .getResponse();
+        
+        
+    }
+}
+
+export default HelpIntentRouter
+```

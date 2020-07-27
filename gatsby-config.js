@@ -85,6 +85,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-remark-toc',
+      options: {
+        header: "Table Of Contents",
+        include: [
+          'contents/blog/*.md',
+          'contents/docs/**/*.md',
+          'contents/docs/**/*.mdx',
+        ],
+     },
+    },
     'gatsby-plugin-sitemap',
     `gatsby-plugin-remove-trailing-slashes`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

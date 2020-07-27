@@ -83,7 +83,173 @@ export default () => {
                       It's easy to handle the request denepnds of the situation.
                       </>
                     )
+                  }, {
+                    title: 'Build-in handler / interceptors',
+                    content: (
+                      <>
+                      TalkyJS includes a commonly used Handler and interceptors<br/>
+                      AMAZON.RepeatIntent, ErrorHandler, SessionEndedRequest, and more.
+                      </>
+                    )
                   }]}/>
+                  <hr />
+                  <Typography.Title level={2}>Compare from ask-sdk</Typography.Title>
+                  <Typography.Title level={3}>Skill Handler</Typography.Title>
+                  <Row gutter={16}>
+                    <Col span={24} md={12}>
+                      <Card title="ASK SDK">
+                         <pre>
+{`
+import { CustomSkillFactory, DefaultApiClient } from 'ask-sdk-core';
+import { S3PersistenceAdapter } from 'ask-sdk-s3-persistence-adapter';
+
+export const handler = CustomSkillFactory.init()
+.withPersistenceAdapter(new S3PersistenceAdapter({
+    bucketName: 'name',
+    pathPrefix: 'blah'
+}))
+.withApiClient(new DefaultApiClient())
+.addErrorHandlers({
+    canHandle() {
+        return true
+    },
+    handle(handlerInput, error) {
+        console.log(error)
+        return handlerInput.responseBuilder
+          .speak('Sorry I could not understand the meaning. Please tell me again')
+          .reprompt('Could you tell me onece more?')
+          .getResponse();
+    }
+})
+.lambda()
+`}
+</pre>
+                      </Card>
+                    </Col>
+                    <Col span={24} md={12}>
+                       <Card title="TalkyJS">
+                         <pre>
+{`
+import { SkillFactory, TalkyJSSkillConfig } from '@talkyjs/core'
+const config: TalkyJSSkillConfig = {
+  database: {
+      type: "s3",
+      tableName: "name",
+      s3PathPrefix: 'blah'
+  },
+  apiClient: {
+      useDefault: true,
+  },
+  errorHandler: {
+      usePreset: true,
+  }
+}
+
+export const handler = SkillFactory.launch(config)
+  .getSkill().lambda()
+`}
+</pre>
+                        </Card>
+                    </Col>
+                  </Row>
+                  <Typography.Title level={3}>Request Handler</Typography.Title>
+                  <Row gutter={16}>
+                    <Col span={24} md={12}>
+                      <Card title="ASK SDK">
+                         <pre>
+{`
+import { RequestHandler, getRequest } from "ask-sdk-core";
+import { IntentRequest } from "ask-sdk-model";
+const StopAndCancelAndNoIntentHandler: RequestHandler = {
+  canHandle(handlerInput) {
+      const request = getRequest<IntentRequest>(handlerInput.requestEnvelope)
+      if (request.type !== 'IntentRequest') return false;
+      return ["AMAZON.StopIntent","AMAZON.CancelIntent","AMAZON.NoIntent"].includes(request.intent.name)
+  },
+  handle(handlerInput) {
+      return handlerInput.responseBuilder
+          .speak("Bye")
+          .getResponse()
+  }
+}
+`}
+</pre>
+                      </Card>
+                    </Col>
+                    <Col span={24} md={12}>
+                       <Card title="TalkyJS">
+                         <pre>
+{`
+import { Router } from "@talkyjs/core";
+export const StopAndCancelAndNoIntentRouter: Router = {
+    requestType: "IntentRequest",
+    intentName: ["AMAZON.StopIntent","AMAZON.CancelIntent","AMAZON.NoIntent"],
+    handler: async (handlerInput) => {
+      return handlerInput.responseBuilder
+          .speak("Bye")
+          .getResponse()
+    }
+}
+
+export default StopAndCancelAndNoIntentRouter
+`}
+</pre>
+                        </Card>
+                    </Col>
+                    </Row>
+                  <Typography.Title level={3}>SSML</Typography.Title>
+                  <Row gutter={16}>
+                    <Col span={24} md={12}>
+                      <Card title="ASK SDK">
+                         <pre>
+{`
+
+return handlerInput.responseBuilder
+  .speak([
+    "<p>Hello! It's a nice development. </p>",
+    "<p>You can use a timer after permitted the Timer permission.</p>",
+    "<p>Can I use the Timer?</p>",
+  ].join(''))
+  .reprompt('How are you?')
+  .getResponse()
+`}
+</pre>
+                      </Card>
+                    </Col>
+                    <Col span={24} md={12}>
+                       <Card title="TalkyJS">
+                         <pre>
+{`
+/** @jsx ssml */
+import {
+    ssml,
+    SpeechScriptJSX,
+} from '@ask-utils/speech-script'
+
+export class InitialLaunchRequestScript extends SpeechScriptJSX {
+    speech() {
+        return (
+            <speak>
+                <p>Hello! It's a nice development. </p>
+                <p>You can use a timer after permitted the Timer permission.</p>
+                <p>Can I use the Timer?</p>
+            </speak>
+        )
+    }
+    
+    reprompt() {
+        return (
+            <speak>
+                <p>How are you?</p>
+            </speak>
+        )
+    }   
+}
+`}
+</pre>
+                        </Card>
+                    </Col>
+                    </Row>
                 </Content>
               </Layout>
           </div>

@@ -35,6 +35,15 @@ export class Header extends Component<Props> {
             }}>Blog</Link>
           </Menu.Item>
           <Menu.Item>
+            <a href="https://share.hsforms.com/10iHREWmUTCCTY_6zkYF-_Q3p3o8"
+              target="_blank"
+              style={{
+                color: '#f6f6f6',
+              }}>
+              Contact
+            </a>
+          </Menu.Item>
+          <Menu.Item>
             <a
               href="https://github.com/talkyjs"
               target="_blank"

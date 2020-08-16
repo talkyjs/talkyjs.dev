@@ -5,11 +5,11 @@
   Introduction
 </h1>
 
-# Create a new Alexa Skill with TalkyJS and ask-sdk
+## Create a new Alexa Skill with TalkyJS and ask-sdk
 
 We can create a new Alexa Custom Skill from ASK CLI(v2)
 
-# Getting started
+## Getting started
 
 ```
 $ ask new  --template-url https://github.com//talkyjs/talkyjs-alexa-skill-template-helloworld.git
@@ -24,8 +24,10 @@ $ ask new  --template-url https://github.com//talkyjs/talkyjs-alexa-skill-templa
   ──────────────
   self-hosted and manage your own hosting 
   
-[Warn]: CLI is about to download the skill template from unofficial template https://github.com//talkyjs/talkyjs-alexa-skill-template-helloworld.git. Please make sure you understand the source code to best protect yourself
- from malicious usage.
+[Warn]: CLI is about to download the skill template from unofficial template 
+https://github.com//talkyjs/talkyjs-alexa-skill-template-helloworld.git.
+Please make sure you understand the source code 
+to best protect yourself from malicious usage.
 ? Would you like to continue download the skill template?  Yes
 ? Please type in your skill name:  talkyjs-alexa-skill-template-helloworld
 ? Please type in your folder name for the skill project (alphanumeric):  talkyjs-alexa-skill-template-helloworld
@@ -36,21 +38,21 @@ $ ask deploy
 
 Edit files in `/talkyjs-alexa-skill-template-helloworld` and deploy AWS and Alexa developer account
 
-# Features
+## Features
 
 - [x] ASK SDK Compatible
 - [x] Typescript
 - [x] JSX / TSX
 - [x] Jest (with Snapshot Test)
 
-# Roadmap
+## Roadmap
  
 - [ ] Decorator
 - [ ] Register generated handler by automatically
 - [ ] ESLint / prettier
 - [ ] E2E testing
 
-# Testing Lambda function
+## Testing Lambda function
 
 ```
 $ cd lambda
@@ -60,6 +62,6 @@ $ npm run tesst
 
 By default, Jest will create a snapshot.
 
-# License
+## License
 
 MIT

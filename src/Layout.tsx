@@ -3,11 +3,11 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Header } from './Header'
 import { pathPrefix } from '../gatsby-config'
-import { Layout } from 'antd'
+import { Layout, Card, } from 'antd'
 import { Sidebar } from './sidebar'
 import { TableOfContents } from './TableOfContents'
 
-const { Sider, Content } = Layout
+const { Sider, Content, Footer } = Layout
 
 export function RootLayout({ children }: React.PropsWithChildren<{}>) {
   return (
@@ -95,6 +95,24 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
                 >
                   {children}
                 </Content>
+                
+                <Footer style={{textAlign: 'center'}}>
+                  <Card title="Vote me on Product Hunt!">
+                    <p>If you interested about the project, please vote me on Product Hunt!</p>
+                    
+        <a
+          href="https://www.producthunt.com/posts/talkyjs-alexa-custom-skill-framework?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-talkyjs-alexa-custom-skill-framework"
+          target="_blank"
+        >
+          <img 
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=235831&theme=light"
+           alt="TalkyJS - Alexa Custom Skill framework - A JavaScript framework for Amazon Alexa Skill development | Product Hunt Embed" 
+           style={{width: "225px", height: "40px"}} width="225px" height="40px" /></a>
+</Card>
+</Footer>
+                  <Footer>
+                  <p>©2020 Created by TalkyJS team</p>
+                </Footer>
               </Layout>
               <TableOfContents />
             </div>

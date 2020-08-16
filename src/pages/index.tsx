@@ -29,6 +29,14 @@ const IndexPage = ({logoImageURL}: {logoImageURL: string}) => {
         <Button type="primary">
           <Link to="/docs/get-started/introduction">Get Started</Link>
         </Button>
+        <a
+          href="https://www.producthunt.com/posts/talkyjs-alexa-custom-skill-framework?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-talkyjs-alexa-custom-skill-framework"
+          target="_blank"
+        >
+          <img 
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=235831&theme=light"
+           alt="TalkyJS - Alexa Custom Skill framework - A JavaScript framework for Amazon Alexa Skill development | Product Hunt Embed" 
+           style={{width: "225px", height: "40px"}} width="225px" height="40px" /></a>
       </Button.Group>
     </div>
   )

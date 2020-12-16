@@ -12,7 +12,7 @@ We can create a new Alexa Custom Skill from ASK CLI(v2)
 ## Getting started
 
 ```
-$ ask new  --template-url https://github.com//talkyjs/talkyjs-alexa-skill-template-helloworld.git
+$ ask new  --template-url https://github.com/talkyjs/talkyjs-alexa-skill-template-helloworld.git
 
 ? Choose a method to host your skill's backend resources:  (Use arrow keys)
 ❯ Alexa-hosted skills

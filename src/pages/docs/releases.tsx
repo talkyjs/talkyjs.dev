@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import {useStaticQuery, graphql }  from 'gatsby'
-import { RootLayout as Layout } from '../Layout'
+import { RootLayout as Layout } from '../../Layout'
 import { Card, Col, Row } from 'antd'
 type AllGithubReleaseQuery = {
     allGithubRelease: {

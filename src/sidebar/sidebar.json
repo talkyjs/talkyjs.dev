@@ -19,11 +19,12 @@
     ]
   },
   {
-    "name": "Resources",
+    "name": "@talkyjs/core",
     "link": "",
-    "items": [{
-      "name": "Releases", "link": "/releases"
-    }]
+    "items": [
+      { "name": "About", "link": "/docs/talkyjs-core" },
+      { "name": "Releases", "link": "/docs/releases"}
+    ]
   },
   {
     "name": "External",

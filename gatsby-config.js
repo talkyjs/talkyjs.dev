@@ -34,6 +34,17 @@ module.exports = {
         name: `contents`,
         path: `${__dirname}/contents`,
       },
+    }, {
+      resolve: `@mosch/gatsby-source-github`,
+      options: {           
+        repository: "talkyjs-core",
+        tree: true,
+        releases: true,
+        user: "talkyjs",
+        secrets: {
+          token: process.env.GITHUB_TOKEN
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,

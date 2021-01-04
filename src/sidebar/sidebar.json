@@ -19,6 +19,14 @@
     ]
   },
   {
+    "name": "@talkyjs/core",
+    "link": "",
+    "items": [
+      { "name": "About", "link": "/docs/talkyjs-core" },
+      { "name": "Releases", "link": "/docs/releases"}
+    ]
+  },
+  {
     "name": "External",
     "link": "",
     "items": [

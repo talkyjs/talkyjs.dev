@@ -1,16 +1,20 @@
-import {replacePath} from './utils'
-import { GatsbyNode } from "gatsby"
-import {createFilePath} from 'gatsby-source-filesystem'
+import { replacePath } from './utils'
+import { GatsbyNode } from 'gatsby'
+import { createFilePath } from 'gatsby-source-filesystem'
 
 const isNPMSourceNode = (node: any, getNode: Function): boolean => {
-  if (!node.parent) return false;
+  if (!node.parent) return false
   const fileNode = getNode(node.parent)
-  if (!fileNode || !fileNode.internal) return false;
+  if (!fileNode || !fileNode.internal) return false
   return fileNode.internal.owner === 'gatsby-source-npm-package-search'
 }
-export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({
+  node,
+  getNode,
+  actions,
+}) => {
   const { createNodeField } = actions
-  
+
   if (node && !isNPMSourceNode(node, getNode)) {
     if (node.internal.type === `MarkdownRemark`) {
       const slug = createFilePath({ node, getNode, basePath: `pages` })

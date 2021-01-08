@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { graphql } from 'gatsby'
 import { RootLayout as Layout } from '../Layout'
 import { PostCard } from '../PostCard'
-import {MdBlogPageQuery} from '../../types/graphql-types'
+import { MdBlogPageQuery } from '../../types/graphql-types'
 
 type BlogPageProps = {
   allMdx: MdBlogPageQuery

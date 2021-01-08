@@ -3,9 +3,9 @@
     "name": "Get Started",
     "link": "",
     "items": [
-      { "name": "Introduction", "link":  "/docs/get-started/introduction"},
-      { "name": "Features", "link":  "/docs/get-started/features"},
-      { "name": "Configurations", "link":  "/docs/get-started/configurations"}
+      { "name": "Introduction", "link": "/docs/get-started/introduction" },
+      { "name": "Features", "link": "/docs/get-started/features" },
+      { "name": "Configurations", "link": "/docs/get-started/configurations" }
     ]
   },
   {
@@ -16,7 +16,7 @@
       { "name": "Router", "link": "/docs/guide/router" },
       { "name": "JSX (TSX)", "link": "/docs/guide/tsx" },
       { "name": "CLI", "link": "/docs/guide/cli" },
-      { "name": "Releases", "link": "/docs/releases"}
+      { "name": "Releases", "link": "/docs/releases" }
     ]
   },
   {
@@ -24,8 +24,8 @@
     "link": "",
     "items": [
       { "name": "Core", "link": "/packages/core" },
-      { "name": "SSML", "link": "/packages/ssml"},
-      { "name": "CLI", "link": "/packages/cli"}
+      { "name": "SSML", "link": "/packages/ssml" },
+      { "name": "CLI", "link": "/packages/cli" }
     ]
   },
   {

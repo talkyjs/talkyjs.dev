@@ -34,23 +34,24 @@ module.exports = {
         name: `contents`,
         path: `${__dirname}/contents`,
       },
-    }, {
+    },
+    {
       resolve: `@mosch/gatsby-source-github`,
-      options: {           
-        repository: "talkyjs-core",
+      options: {
+        repository: 'talkyjs-core',
         tree: false,
         releases: true,
-        user: "talkyjs",
+        user: 'talkyjs',
         secrets: {
-          token: process.env.GITHUB_TOKEN
-        }
-      }
+          token: process.env.GITHUB_TOKEN,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-36617424-8",
+        trackingId: 'UA-36617424-8',
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
@@ -72,7 +73,7 @@ module.exports = {
         // Any additional optional fields
         //sampleRate: 5,
         //siteSpeedSampleRate: 10,
-        cookieDomain: "talkyjs.dev",
+        cookieDomain: 'talkyjs.dev',
       },
     },
     `gatsby-transformer-sharp`,
@@ -86,8 +87,8 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [ `gatsby-remark-images` ],
-      }
+        plugins: [`gatsby-remark-images`],
+      },
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -122,19 +123,19 @@ module.exports = {
     {
       resolve: 'gatsby-remark-toc',
       options: {
-        header: "Table Of Contents",
+        header: 'Table Of Contents',
         include: [
           'contents/blog/*.md',
           'contents/docs/**/*.md',
           'contents/docs/**/*.mdx',
         ],
-     },
+      },
     },
     {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {
-        fileName: `types/graphql-types.d.ts`
-      }
+        fileName: `types/graphql-types.d.ts`,
+      },
     },
     'gatsby-plugin-sitemap',
     `gatsby-plugin-remove-trailing-slashes`,

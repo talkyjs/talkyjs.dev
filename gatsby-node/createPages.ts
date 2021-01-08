@@ -2,7 +2,7 @@ import path from 'path'
 import { GatsbyNode } from "gatsby"
 import {replacePath} from './utils'
 
-export const createPages: GatsbyNode['createPages'] = ({ actions, graphql }) => {
+const createBlogPostByMDX: GatsbyNode['createPages'] = ({ actions, graphql }) => {
   const { createPage } = actions
 
   const Template = path.resolve(`src/templates/template.tsx`)
@@ -46,4 +46,8 @@ export const createPages: GatsbyNode['createPages'] = ({ actions, graphql }) => 
       })
     })
   })
+
+}
+export const createPages: GatsbyNode['createPages'] = (props) => {
+  createBlogPostByMDX(props)
 }

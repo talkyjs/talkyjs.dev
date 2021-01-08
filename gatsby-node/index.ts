@@ -1,2 +1,2 @@
-export {onCreateNode} from './onCreateNode'
-export {createPages} from './createPages'
+export { onCreateNode } from './onCreateNode'
+export { createPages } from './createPages'

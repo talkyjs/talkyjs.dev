@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Header } from './Header'
 import { pathPrefix } from '../gatsby-config'
-import { Layout, Card, } from 'antd'
+import { Layout, Card } from 'antd'
 import { Sidebar } from './sidebar'
 import { TableOfContents } from './TableOfContents'
 
@@ -28,21 +28,19 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
               }
             }
           }
-          file(relativePath: {eq: "logo.png"}) {
-              childImageSharp{
-                  fixed(width: 180) {
-                      ...GatsbyImageSharpFixed
-                  }
+          file(relativePath: { eq: "logo.png" }) {
+            childImageSharp {
+              fixed(width: 180) {
+                ...GatsbyImageSharpFixed
               }
+            }
           }
         }
       `}
       render={(data) => {
         const allPosts = data.allMdx.edges
-        .filter((edge: any) => !! edge.node.fields && !!edge.node.fields.slug)
-        .map(
-          (edge: any) => edge.node.fields.slug
-        )
+          .filter((edge: any) => !!edge.node.fields && !!edge.node.fields.slug)
+          .map((edge: any) => edge.node.fields.slug)
         let onPostPage
         if (typeof window !== 'undefined') {
           const path = window.location.pathname.replace(
@@ -66,18 +64,29 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
-                { name: 'description', content: "TalkyJS is a JavaScript framework for Amazon Alexa Skill development" },
+                {
+                  name: 'description',
+                  content:
+                    'TalkyJS is a JavaScript framework for Amazon Alexa Skill development',
+                },
                 { name: 'keywords', content: 'sample, something' },
-                { property: "og:title", content: `${title}` },
-                { property: "og:type", content: "blog" },
-                { property: "og:url", content: 'https://talkyjs.dev' },
-                { property: "og:site_name", content: "TalkyJS" },
-                { property: "og:description", content: "TalkyJS is a JavaScript framework for Amazon Alexa Skill development" },
+                { property: 'og:title', content: `${title}` },
+                { property: 'og:type', content: 'blog' },
+                { property: 'og:url', content: 'https://talkyjs.dev' },
+                { property: 'og:site_name', content: 'TalkyJS' },
+                {
+                  property: 'og:description',
+                  content:
+                    'TalkyJS is a JavaScript framework for Amazon Alexa Skill development',
+                },
               ]}
             >
               <html lang="en" />
             </Helmet>
-            <Header siteTitle={title} logoURL={data.file.childImageSharp.fixed} />
+            <Header
+              siteTitle={title}
+              logoURL={data.file.childImageSharp.fixed}
+            />
 
             <div
               style={{
@@ -97,22 +106,29 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
                 >
                   {children}
                 </Content>
-                
-                <Footer style={{textAlign: 'center'}}>
+
+                <Footer style={{ textAlign: 'center' }}>
                   <Card title="Vote me on Product Hunt!">
-                    <p>If you interested about the project, please vote me on Product Hunt!</p>
-                    
-        <a
-          href="https://www.producthunt.com/posts/talkyjs-alexa-custom-skill-framework?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-talkyjs-alexa-custom-skill-framework"
-          target="_blank"
-        >
-          <img 
-          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=235831&theme=light"
-           alt="TalkyJS - Alexa Custom Skill framework - A JavaScript framework for Amazon Alexa Skill development | Product Hunt Embed" 
-           style={{width: "225px", height: "40px"}} width="225px" height="40px" /></a>
-</Card>
-</Footer>
-                  <Footer>
+                    <p>
+                      If you interested about the project, please vote me on
+                      Product Hunt!
+                    </p>
+
+                    <a
+                      href="https://www.producthunt.com/posts/talkyjs-alexa-custom-skill-framework?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-talkyjs-alexa-custom-skill-framework"
+                      target="_blank"
+                    >
+                      <img
+                        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=235831&theme=light"
+                        alt="TalkyJS - Alexa Custom Skill framework - A JavaScript framework for Amazon Alexa Skill development | Product Hunt Embed"
+                        style={{ width: '225px', height: '40px' }}
+                        width="225px"
+                        height="40px"
+                      />
+                    </a>
+                  </Card>
+                </Footer>
+                <Footer>
                   <p>©2020 Created by TalkyJS team</p>
                 </Footer>
               </Layout>

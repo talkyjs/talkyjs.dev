@@ -74,21 +74,18 @@ export function Sidebar() {
         const defaultOpenKeys = rootItems.map((item) => item.id)
 
         return (
-          <Layout.Sider
-            breakpoint="lg"
-            collapsedWidth={0}
-          >
-          <Affix>
-            <Menu
-              theme="dark"
-              mode="inline"
-              style={{ height: '100%', borderRight: 0 }}
-              defaultOpenKeys={defaultOpenKeys}
-              selectedKeys={[currentPath]}
-            >
-              {rootItems.map((v) => render(v, v.id))}
-            </Menu>
-          </Affix>
+          <Layout.Sider breakpoint="lg" collapsedWidth={0}>
+            <Affix>
+              <Menu
+                theme="dark"
+                mode="inline"
+                style={{ height: '100%', borderRight: 0 }}
+                defaultOpenKeys={defaultOpenKeys}
+                selectedKeys={[currentPath]}
+              >
+                {rootItems.map((v) => render(v, v.id))}
+              </Menu>
+            </Affix>
           </Layout.Sider>
         )
       }}

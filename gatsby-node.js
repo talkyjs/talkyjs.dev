@@ -14,7 +14,7 @@ require('ts-node').register({
 const nodes = require('./gatsby-node/index')
 
 if (nodes) {
-    Object.entries(nodes).forEach(([key, node]) => {
-        exports[key] = node
-    })
+  Object.entries(nodes).forEach(([key, node]) => {
+    exports[key] = node
+  })
 }

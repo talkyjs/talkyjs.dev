@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import { Button, Row, Col, Card, Layout, Typography } from 'antd'
 import { GithubOutlined } from '@ant-design/icons'
@@ -7,9 +7,9 @@ import {
   StaticCardGrid
 } from '../templates/StaticCardGrid'
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
-const IndexPage = ({logoImageURL}: {logoImageURL: string}) => {
+const IndexPage: FC<{logoImageURL: string}> = ({logoImageURL}) => {
   return (
     <div align="center" style={{
       padding: 80,
@@ -267,7 +267,7 @@ export class InitialLaunchRequestScript extends SpeechScriptJSX {
 }
 
 const query = graphql`
-    query {
+    query TopPage {
         file(relativePath: {eq: "logo.png"}) {
             childImageSharp{
                 fixed(width: 640) {

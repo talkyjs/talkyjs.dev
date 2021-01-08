@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { graphql } from 'gatsby'
 import { RootLayout as Layout } from '../Layout'
 import { PostCard } from '../PostCard'
+import {MdBlogPageQuery} from '../../types/graphql-types'
 
-const BlogPage = ({
+type BlogPageProps = {
+  allMdx: MdBlogPageQuery
+}
+const BlogPage: FC<BlogPageProps> = ({
   data: {
     allMdx: { edges },
   },
@@ -21,7 +25,7 @@ const BlogPage = ({
 export default BlogPage
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query MDBlogPage($path: String!) {
     allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { root: { eq: $path } } }

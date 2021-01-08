@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import {useStaticQuery, graphql }  from 'gatsby'
+import { Timeline } from 'antd'
 import { RootLayout as Layout } from '../../Layout'
-import { Card, Col, Row, Timeline } from 'antd'
 type AllGithubReleaseQuery = {
     allGithubRelease: {
         edges: {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import {useStaticQuery, graphql }  from 'gatsby'
 import { RootLayout as Layout } from '../../Layout'
-import { Card, Col, Row } from 'antd'
+import { Card, Col, Row, Timeline } from 'antd'
 type AllGithubReleaseQuery = {
     allGithubRelease: {
         edges: {
@@ -45,24 +45,17 @@ export const Releases: FC = () => {
     return (
         <Layout>
             <h1>Releases</h1>
-            <Row gutter={16}>
+            <Timeline>
                 {edges.map(({node}) => (
-                    <Col span={12}  style={{marginBottom: 16}} key={node.id}>
-                        <Card title={node.name}>
-                            <dl>
-                                <dt>Released at</dt>
-                                <dd>{new Date(node.publishedAt).toLocaleDateString()}</dd>
-                                <dt>URL</dt>
-                                <dd>
-                                    <a href={node.htmlUrl}>
-                                        {node.htmlUrl}
-                                    </a>
-                                </dd>
-                            </dl>
-                        </Card>
-                    </Col>
+                    <Timeline.Item key={node.id}>
+                        <p>{new Date(node.publishedAt).toLocaleDateString()}: {node.name ? (<b> {node.name}</b>):null}</p>
+                        <p><a href={node.htmlUrl}>{node.htmlUrl}</a></p>
+                        <div dangerouslySetInnerHTML={{
+                            __html: node.body
+                        }} />
+                    </Timeline.Item>
                 ))}
-            </Row>
+            </Timeline>
         </Layout>
     )
 }

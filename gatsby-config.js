@@ -38,7 +38,7 @@ module.exports = {
       resolve: `@mosch/gatsby-source-github`,
       options: {           
         repository: "talkyjs-core",
-        tree: true,
+        tree: false,
         releases: true,
         user: "talkyjs",
         secrets: {

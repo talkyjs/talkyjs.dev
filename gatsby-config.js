@@ -38,7 +38,7 @@ module.exports = {
       resolve: `@mosch/gatsby-source-github`,
       options: {           
         repository: "talkyjs-core",
-        tree: true,
+        tree: false,
         releases: true,
         user: "talkyjs",
         secrets: {
@@ -78,15 +78,9 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-source-npm-package-search`,
       options: {
-        name: 'gatsby-starter-markdown',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/icon.png', // This path is relative to the root of the site.
+        keywords: ['talkyjs'],
       },
     },
     {

@@ -38,6 +38,7 @@ export const createPages: GatsbyNode['createPages'] = ({ actions, graphql }) => 
     }
     if (!result.data) return;
     result.data.allMdx.edges.forEach(({ node }) => {
+      if (!node.fields) return;
       createPage({
         path: replacePath(node.fields.slug),
         component: Template,

@@ -38,7 +38,9 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
         }
       `}
       render={(data) => {
-        const allPosts = data.allMdx.edges.map(
+        const allPosts = data.allMdx.edges
+        .filter((edge: any) => !! edge.node.fields && !!edge.node.fields.slug)
+        .map(
           (edge: any) => edge.node.fields.slug
         )
         let onPostPage

@@ -90,6 +90,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-npm-package-search`,
+      options: {
+        keywords: ['talkyjs'],
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [ `gatsby-remark-images` ],

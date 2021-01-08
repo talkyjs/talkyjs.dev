@@ -2,7 +2,7 @@ import {replacePath} from './utils'
 import { GatsbyNode } from "gatsby"
 import {createFilePath} from 'gatsby-source-filesystem'
 
-const isNPMSourceNode = (node: {parent?: string}, getNode: Function): boolean => {
+const isNPMSourceNode = (node: any, getNode: Function): boolean => {
   if (!node.parent) return false;
   const fileNode = getNode(node.parent)
   if (!fileNode || !fileNode.internal) return false;
@@ -11,7 +11,7 @@ const isNPMSourceNode = (node: {parent?: string}, getNode: Function): boolean =>
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   
-  if (!isNPMSourceNode(node, getNode)) {
+  if (node && !isNPMSourceNode(node, getNode)) {
     if (node.internal.type === `MarkdownRemark`) {
       const slug = createFilePath({ node, getNode, basePath: `pages` })
       createNodeField({

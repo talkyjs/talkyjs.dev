@@ -1,13 +1,25 @@
-const replacePath = require('./utils')
-const path = require('path')
+import path from 'path'
+import { GatsbyNode } from "gatsby"
+import {replacePath} from './utils'
 
-module.exports = exports.createPages = ({ actions, graphql }) => {
+export const createPages: GatsbyNode['createPages'] = ({ actions, graphql }) => {
   const { createPage } = actions
 
   const Template = path.resolve(`src/templates/template.tsx`)
 
   // sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000
-  return graphql(`
+  return graphql<{
+    allMdx: {
+      edges: Array<{
+        node: {
+          id: string;
+          fields: {
+            slug: string;
+          }
+        }
+      }>
+    }
+  }>(`
     {
       allMdx {
         edges {
@@ -24,6 +36,7 @@ module.exports = exports.createPages = ({ actions, graphql }) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
+    if (!result.data) return;
     result.data.allMdx.edges.forEach(({ node }) => {
       createPage({
         path: replacePath(node.fields.slug),

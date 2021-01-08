@@ -1,3 +1,7 @@
 {
-  "extends": ["config:base"]
+  "extends": [
+    "config:base",
+    "github>hatena/renovate-config:schedule"
+  ],
+  "automerge": true
 }

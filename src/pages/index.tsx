@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import Helmet from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import { Button, Row, Col, Card, Layout, Typography } from 'antd'
 import { GithubOutlined } from '@ant-design/icons'
@@ -56,6 +57,27 @@ export default () => {
             backgroundColor: 'rgb(240, 242, 245)',
           }}
         >
+          <Helmet
+            title="Talkyjs | Simple JavaScript framework for Amazon Alexa Skill development"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'TalkyJS is a JavaScript framework for Amazon Alexa Skill development',
+              },
+              { property: 'og:title', content: `Talkyjs | Simple JavaScript framework for Amazon Alexa Skill development` },
+              { property: 'og:type', content: 'blog' },
+              { property: 'og:url', content: 'https://talkyjs.dev' },
+              { property: 'og:site_name', content: 'TalkyJS' },
+              {
+                property: 'og:description',
+                content:
+                  'TalkyJS is a JavaScript framework for Amazon Alexa Skill development',
+              },
+            ]}
+          >
+            <html lang="en" />
+          </Helmet>
           <IndexPage logoImageURL={data.file.childImageSharp.fixed} />
           <Layout>
             <Content

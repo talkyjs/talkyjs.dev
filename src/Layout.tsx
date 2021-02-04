@@ -69,7 +69,6 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
                   content:
                     'TalkyJS is a JavaScript framework for Amazon Alexa Skill development',
                 },
-                { name: 'keywords', content: 'sample, something' },
                 { property: 'og:title', content: `${title}` },
                 { property: 'og:type', content: 'blog' },
                 { property: 'og:url', content: 'https://talkyjs.dev' },

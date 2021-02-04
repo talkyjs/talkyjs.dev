@@ -2971,12 +2971,6 @@ export type NpmPackageConnectionGroupArgs = {
 
 export type NpmPackageDependencies = {
   ask_sdk?: Maybe<Scalars['String']>;
-  _angular_devkit_schematics_cli?: Maybe<Scalars['String']>;
-  _oclif_command?: Maybe<Scalars['String']>;
-  _oclif_config?: Maybe<Scalars['String']>;
-  _oclif_plugin_help?: Maybe<Scalars['String']>;
-  _talkyjs_schematics?: Maybe<Scalars['String']>;
-  tslib?: Maybe<Scalars['String']>;
   _ask_utils_core?: Maybe<Scalars['String']>;
   _sentry_node?: Maybe<Scalars['String']>;
   ask_sdk_core?: Maybe<Scalars['String']>;
@@ -2985,16 +2979,16 @@ export type NpmPackageDependencies = {
   ask_sdk_s3_persistence_adapter?: Maybe<Scalars['String']>;
   moment?: Maybe<Scalars['String']>;
   tslog?: Maybe<Scalars['String']>;
+  _angular_devkit_schematics_cli?: Maybe<Scalars['String']>;
+  _oclif_command?: Maybe<Scalars['String']>;
+  _oclif_config?: Maybe<Scalars['String']>;
+  _oclif_plugin_help?: Maybe<Scalars['String']>;
+  _talkyjs_schematics?: Maybe<Scalars['String']>;
+  tslib?: Maybe<Scalars['String']>;
 };
 
 export type NpmPackageDependenciesFilterInput = {
   ask_sdk?: Maybe<StringQueryOperatorInput>;
-  _angular_devkit_schematics_cli?: Maybe<StringQueryOperatorInput>;
-  _oclif_command?: Maybe<StringQueryOperatorInput>;
-  _oclif_config?: Maybe<StringQueryOperatorInput>;
-  _oclif_plugin_help?: Maybe<StringQueryOperatorInput>;
-  _talkyjs_schematics?: Maybe<StringQueryOperatorInput>;
-  tslib?: Maybe<StringQueryOperatorInput>;
   _ask_utils_core?: Maybe<StringQueryOperatorInput>;
   _sentry_node?: Maybe<StringQueryOperatorInput>;
   ask_sdk_core?: Maybe<StringQueryOperatorInput>;
@@ -3003,6 +2997,12 @@ export type NpmPackageDependenciesFilterInput = {
   ask_sdk_s3_persistence_adapter?: Maybe<StringQueryOperatorInput>;
   moment?: Maybe<StringQueryOperatorInput>;
   tslog?: Maybe<StringQueryOperatorInput>;
+  _angular_devkit_schematics_cli?: Maybe<StringQueryOperatorInput>;
+  _oclif_command?: Maybe<StringQueryOperatorInput>;
+  _oclif_config?: Maybe<StringQueryOperatorInput>;
+  _oclif_plugin_help?: Maybe<StringQueryOperatorInput>;
+  _talkyjs_schematics?: Maybe<StringQueryOperatorInput>;
+  tslib?: Maybe<StringQueryOperatorInput>;
 };
 
 export type NpmPackageDevDependencies = {
@@ -3293,12 +3293,6 @@ export type NpmPackageFieldsEnum =
   | '_searchInternal___concatenatedName'
   | 'tags___latest'
   | 'dependencies___ask_sdk'
-  | 'dependencies____angular_devkit_schematics_cli'
-  | 'dependencies____oclif_command'
-  | 'dependencies____oclif_config'
-  | 'dependencies____oclif_plugin_help'
-  | 'dependencies____talkyjs_schematics'
-  | 'dependencies___tslib'
   | 'dependencies____ask_utils_core'
   | 'dependencies____sentry_node'
   | 'dependencies___ask_sdk_core'
@@ -3307,6 +3301,12 @@ export type NpmPackageFieldsEnum =
   | 'dependencies___ask_sdk_s3_persistence_adapter'
   | 'dependencies___moment'
   | 'dependencies___tslog'
+  | 'dependencies____angular_devkit_schematics_cli'
+  | 'dependencies____oclif_command'
+  | 'dependencies____oclif_config'
+  | 'dependencies____oclif_plugin_help'
+  | 'dependencies____talkyjs_schematics'
+  | 'dependencies___tslib'
   | 'devDependencies____ask_utils_test'
   | 'devDependencies____commitlint_cli'
   | 'devDependencies____commitlint_config_conventional'
@@ -4115,6 +4115,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -4594,6 +4596,8 @@ export type SidebarJsonSortInput = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   pathPrefix?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   id: Scalars['ID'];
@@ -4796,6 +4800,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___siteUrl'
+  | 'port'
+  | 'host'
   | 'pathPrefix'
   | 'polyfill'
   | 'id'
@@ -4888,6 +4894,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -5839,7 +5847,7 @@ export type BlogPostQueryQueryVariables = Exact<{
 
 
 export type BlogPostQueryQuery = { mdx?: Maybe<(
-    Pick<Mdx, 'id' | 'body'>
+    Pick<Mdx, 'id' | 'excerpt' | 'body'>
     & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'root'>> }
   )> };
 

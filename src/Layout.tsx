@@ -81,6 +81,7 @@ export function RootLayout({ children }: React.PropsWithChildren<{}>) {
               ]}
             >
               <html lang="en" />
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
             </Helmet>
             <Header
               siteTitle={title}

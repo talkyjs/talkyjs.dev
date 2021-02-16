@@ -94,9 +94,7 @@ export class Header extends Component<Props> {
             </a>
           </Menu.Item>
           <Menu.Item>
-          <div>
             <Docsearch />
-            </div>
           </Menu.Item>
         </Menu>
       </Row>

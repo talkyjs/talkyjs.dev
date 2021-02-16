@@ -1,12 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import { Link } from 'gatsby'
-import { Menu, Row } from 'antd'
-import { GithubOutlined, TwitterOutlined } from '@ant-design/icons'
+import { Menu, Row , Input } from 'antd'
+import { GithubOutlined } from '@ant-design/icons'
 import Img from 'gatsby-image'
 
 interface Props {
   siteTitle: string
   logoURL: string
+}
+
+const Docsearch = () => {
+  useEffect(() => {
+    if (!window) return;
+    // @ts-expect-error
+    import('docsearch.js').then(({ default: docsearch}: any) => {
+      console.log(docsearch)
+      console.log(document.querySelector('#docsearch'))
+      docsearch({
+        apiKey: 'a6231811126b2bc6445d33a962355d00',
+        indexName: 'talkyjs',
+        inputSelector: '#docsearch',
+        debug: false // Set debug to true if you want to inspect the dropdown
+      });
+    })
+  }, [])
+  return <Input id="docsearch" />
 }
 
 export class Header extends Component<Props> {
@@ -74,6 +92,9 @@ export class Header extends Component<Props> {
               <GithubOutlined />
               GitHub
             </a>
+          </Menu.Item>
+          <Menu.Item>
+            <Docsearch />
           </Menu.Item>
         </Menu>
       </Row>

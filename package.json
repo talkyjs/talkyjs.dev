@@ -9,7 +9,7 @@
     "@mdx-js/tag": "0.20.3",
     "@mosch/gatsby-source-github": "0.4.1",
     "antd": "4.12.3",
-    "docsearch.js": "^2.6.3",
+    "docsearch.js": "2.6.3",
     "gatsby": "2.32.3",
     "gatsby-cli": "2.19.1",
     "gatsby-image": "2.11.0",

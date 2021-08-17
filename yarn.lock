@@ -14160,10 +14160,10 @@ remark-parse@^6.0.0, remark-parse@^6.0.3:
     vfile-location "^2.0.0"
     xtend "^4.0.1"
 
-remark-react@9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/remark-react/-/remark-react-9.0.0.tgz#8475e961979ec926a7cbfb5b19d73f98506dc98e"
-  integrity sha512-IeykeHUR/wxCm9G4itmjosVn1Tov2Br426KkXavx/lLzFMDjsTdj9tYfZ5CFZ9slaFR2DAuo7qSCaZ6xAwB9zQ==
+remark-react@9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/remark-react/-/remark-react-9.0.1.tgz#6412116737a7547bc572eedc56f93c48c320b5e1"
+  integrity sha512-NtpTMfUIreelaRdUVUtgSizTOSwV6JQvGAPn2gWNoWF+Etd0D8YUdDDFEV3vVOiMIoiNR2bQ0etMb/9uaWhjAw==
   dependencies:
     "@mapbox/hast-util-table-cell-style" "^0.2.0"
     "@types/mdast" "^3.0.0"

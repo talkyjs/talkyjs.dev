@@ -32,7 +32,7 @@
     "gatsby-transformer-remark": "2.16.1",
     "gatsby-transformer-sharp": "2.12.1",
     "highlight.js": "11.2.0",
-    "katex": "0.13.16",
+    "katex": "0.13.17",
     "prismjs": "1.24.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

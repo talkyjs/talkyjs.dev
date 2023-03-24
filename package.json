@@ -73,7 +73,7 @@
     "gh-pages": "5.0.0",
     "netlify-plugin-gatsby-cache": "0.3.2",
     "node-fetch": "3.3.1",
-    "prettier": "2.8.6",
+    "prettier": "2.8.7",
     "ts-node": "10.9.1",
     "typescript": "5.0.2"
   },

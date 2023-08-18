@@ -16790,10 +16790,10 @@ unicode-property-aliases-ecmascript@^1.0.4:
   resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.1.0.tgz#dd57a99f6207bedff4628abefb94c50db941c8f4"
   integrity sha512-PqSoPh/pWetQ2phoj5RLiaqIk4kCNwoV3CI+LfGmWLKI3rE3kl1h59XpX2BjgDrmbxD9ARtQobPGU1SguCYuQg==
 
-unified@11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/unified/-/unified-11.0.0.tgz#3cc00006664739cf3947d676ea6a6edc461795ea"
-  integrity sha512-65zgPyv0vyXnJpw4fbGmoXjP0/6cBmnnesl4lSPGU2tYuzLWtuicRBFcaV6kgzitGrBHj6pgXYomMw1VQe/cQg==
+unified@11.0.1:
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/unified/-/unified-11.0.1.tgz#8c4bd13fdd088cd8caf6135637dfcc01170cda7e"
+  integrity sha512-v4p/Tcbn44UjLtASIyrKi29qqSbWY+u3awY5M6fTMVuT3KQ9DfWd4q/JaFGoNEDtQt8+e4yg150oHx34ABwrsg==
   dependencies:
     "@types/unist" "^3.0.0"
     "@ungap/structured-clone" "^1.0.0"

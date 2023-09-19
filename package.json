@@ -39,7 +39,7 @@
     "react-helmet": "6.1.0",
     "react-responsive": "9.0.2",
     "react-sizeme": "3.0.2",
-    "remark-parse": "10.0.2",
+    "remark-parse": "11.0.0",
     "remark-react": "9.0.1",
     "unified": "11.0.3"
   },

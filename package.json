@@ -65,7 +65,7 @@
   "devDependencies": {
     "@types/highlight.js": "10.1.0",
     "@types/node": "20.11.16",
-    "@types/react": "18.2.52",
+    "@types/react": "18.2.54",
     "@types/react-dom": "18.2.18",
     "@types/react-helmet": "6.1.11",
     "cross-env": "7.0.3",

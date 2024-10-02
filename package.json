@@ -40,7 +40,7 @@
     "react-responsive": "9.0.2",
     "react-sizeme": "3.0.2",
     "remark-parse": "11.0.0",
-    "remark-react": "9.0.1",
+    "remark-react": "10.0.0",
     "unified": "11.0.5"
   },
   "keywords": [

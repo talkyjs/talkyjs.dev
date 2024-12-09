@@ -65,8 +65,8 @@
   "devDependencies": {
     "@types/highlight.js": "10.1.0",
     "@types/node": "22.10.1",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
     "@types/react-helmet": "6.1.11",
     "cross-env": "7.0.3",
     "gatsby-plugin-remove-trailing-slashes": "2.10.0",

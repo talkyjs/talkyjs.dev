@@ -33,7 +33,7 @@
     "gatsby-transformer-sharp": "2.12.1",
     "highlight.js": "11.11.1",
     "katex": "0.16.21",
-    "prismjs": "1.29.0",
+    "prismjs": "1.30.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-helmet": "6.1.0",

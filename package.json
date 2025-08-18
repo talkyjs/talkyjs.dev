@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "@types/highlight.js": "10.1.0",
-    "@types/node": "22.17.1",
+    "@types/node": "22.17.2",
     "@types/react": "19.1.10",
     "@types/react-dom": "19.1.7",
     "@types/react-helmet": "6.1.11",

@@ -70,7 +70,7 @@
     "@types/react-helmet": "6.1.11",
     "cross-env": "7.0.3",
     "gatsby-plugin-remove-trailing-slashes": "2.10.0",
-    "gh-pages": "5.0.0",
+    "gh-pages": "6.3.0",
     "netlify-plugin-gatsby-cache": "0.3.2",
     "node-fetch": "3.3.2",
     "prettier": "2.8.8",
